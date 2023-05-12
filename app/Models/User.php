@@ -32,6 +32,18 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function role()
+{
+return $this->belongsTo(UserRole::class, 'user_role_id');
+}
+public function articles()
+{
+return $this->hasMany(Article::class);
+}
+public function comments()
+{
+return $this->hasMany(Comment::class);
+}
 
     /**
      * The attributes that should be cast.
